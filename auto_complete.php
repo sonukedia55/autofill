@@ -85,22 +85,66 @@ body {
 }</style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	var pr=-1;
+	var cc = '';
+	$('#country_id').keydown(function(key) {
+		switch(parseInt(key.which,10)) {
+
+		case 38:
+		{
+			pr--;
+			cc = $('#go'+pr).val();
+			$('#country_idd').val(cc);
+
+		}
+			break;
+
+		case 40:
+		{
+			pr++;
+			cc = $('#go'+pr).val();
+			$('#country_idd').val(cc);
+
+		}
+
+				break;
+				case 13:
+				{
+
+					$('#country_id').val(cc);
+					$('#country_idd').val('');
+					$('#country_list_id').hide(00);
+					cc='';
+					pr=-1;
+
+				}
+
+						break;
+		}
+	});
+});
+</script>
 </head>
- 
+
 <body>
     <div class="container">
-        
+
         <h1 class="main_title">Autofill using php sql</h1>
         <div class="content">
             <form>
                 <div class="label_div">Type a keyword : </div>
                 <div class="input_container">
-                    <input type="text" id="country_id" onkeyup="autocomplet()">
+
+                    <input type="text" autocomplete="off" id="country_id" onkeyup="autocomplet()"  /><br>
+										<input type="text" autocomplete="off" id="country_idd" disabled  />
                     <ul id="country_list_id"></ul>
                 </div>
             </form>
-        </div> 
-        
+        </div>
+
     </div>
 </body>
 </html>

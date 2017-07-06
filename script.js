@@ -15,7 +15,7 @@ function autocomplet() {
 		$('#country_list_id').hide();
 	}
 }
- 
+
 // set_item : this function will be executed when we select an item
 function set_item(item) {
 	// change input value
